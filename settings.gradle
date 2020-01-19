@@ -9,4 +9,4 @@
 
 rootProject.name = 'EliteFour'
 
-include 'docs'
+include 'docs', 'backend'
