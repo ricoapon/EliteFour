@@ -1,0 +1,11 @@
+{
+  "name": "docsifydemo",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "docsify-cli": "^4.4.0"
+  },
+  "devDependencies": {
+    "express": "^4.17.1"
+  }
+}

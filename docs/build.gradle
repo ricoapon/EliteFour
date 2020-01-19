@@ -1,0 +1,18 @@
+/*
+ * The docs module is run using the docsify-cli plugin from npm. However, doing this with Gradle has an annoying issue:
+ * every time you run "gradle docsService" and press "CTRL+C", the npm process will not stop.
+ * Running this module using Gradle will be implemented and supported, but it is advised to run using npm.
+ *
+ * Commands to run this module using npm:
+ *   npm install
+ *   npx docsify serve --open --port 2000
+ */
+
+plugins {
+    id "com.github.node-gradle.node" version "2.2.0"
+}
+
+task docsServe(type: NpxTask, dependsOn: 'npmInstall', description: 'Start web-app for documentation.') {
+    command = 'docsify'
+    args = ['serve', '--open', '--port', '2000']
+}
