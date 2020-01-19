@@ -33,3 +33,9 @@ test {
 
 	environment "spring.profiles.active", "test"
 }
+
+processResources {
+	// Make sure that the latest frontend deployment is contained in the jar.
+	dependsOn ':frontend:deployToBackend'
+	inputs.dir 'src/main/resources/static'
+}

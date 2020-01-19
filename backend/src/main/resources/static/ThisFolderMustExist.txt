@@ -1,3 +1,0 @@
-This folder must exit, so that deployment builds can be copied into this directory.
-
-Committing into this directory would not be needed, since this is done while creating the final jar.

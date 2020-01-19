@@ -1,0 +1,34 @@
+/*
+ * The frontend module is run using npm. However, doing this with Gradle has an annoying issue:
+ * every time you run "gradle npm_start" and press "CTRL+C", the npm process will not stop.
+ * Running this module using Gradle will be implemented and supported, but it is advised to run using npm.
+ *
+ * Commands to run this module using npm:
+ *   npm install
+ *   npm start
+ */
+
+plugins {
+    id "com.moowork.node" version "1.3.1"
+}
+
+def buildOutputDir = project(':backend').file('src/main/resources/static')
+
+task buildProduction(type: NpmTask, dependsOn: 'npmInstall', description: 'Create production build files.') {
+    // Input are all files except the build and node_modules directory.
+    inputs.files fileTree(dir: '.').exclude { details ->
+        (details.file.canonicalPath.contains("node_modules")
+                && !details.file.canonicalPath.contains('build'))
+    }
+    outputs.dir file('build')
+
+    args = ['run-script', 'build']
+}
+
+task deployToBackend(type: Sync, description: 'Sync production build folder to the backend static folder.', dependsOn: buildProduction) {
+    inputs.dir file('build')
+    outputs.dir buildOutputDir
+
+    from 'build'
+    into buildOutputDir
+}

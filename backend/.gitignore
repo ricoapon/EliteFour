@@ -1,0 +1,2 @@
+# React production builds don't need to be committed, since they are generated when needed.
+src/main/resources/static
