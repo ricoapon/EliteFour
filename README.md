@@ -5,3 +5,5 @@ Web application around the algorithm to pick favorites out of a list.
 
 # Links
 * [Github pages documentation](https://greent13.github.io/EliteFour/#/)
+* [Travis-ci](https://travis-ci.org/GreenT13/EliteFour)
+* [Website (Heroku app)](https://elite-four.herokuapp.com/)
