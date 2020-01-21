@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.2.3.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 	id 'java'
+	id 'nu.studer.jooq' version '4.1'
 }
 
 group = 'com.apon'
@@ -18,6 +19,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.flywaydb:flyway-core'
 	runtimeOnly 'org.postgresql:postgresql'
+	jooqRuntime 'org.postgresql:postgresql'
 	testRuntimeOnly 'com.h2database:h2'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
@@ -38,4 +40,40 @@ processResources {
 	// Make sure that the latest frontend deployment is contained in the jar.
 	dependsOn ':frontend:deployToBackend'
 	inputs.dir 'src/main/resources/static'
+}
+
+
+// Create the task 'generateEliteFourJooqSchemaSource' which is used to generate jOOQ files (in build/generated-src).
+jooq {
+	version = '3.12.3'
+	generateSchemaSourceOnCompilation = false
+
+	EliteFour(sourceSets.main) {
+		jdbc {
+			driver = 'org.postgresql.Driver'
+			url = 'jdbc:postgresql://localhost:5432/elitefour'
+			user = 'postgres'
+			password = 'admin'
+		}
+		generator {
+			name = 'org.jooq.codegen.DefaultGenerator'
+			strategy {
+				name = 'org.jooq.codegen.DefaultGeneratorStrategy'
+			}
+			database {
+				name = 'org.jooq.meta.postgres.PostgresDatabase'
+				inputSchema = 'public'
+			}
+			generate {
+				relations = true
+				deprecated = false
+				records = true
+				immutablePojos = true
+				fluentSetters = true
+			}
+			target {
+				packageName = 'com.apon.elitefour.database'
+			}
+		}
+	}
 }
