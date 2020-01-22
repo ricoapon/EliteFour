@@ -73,6 +73,7 @@ jooq {
 			}
 			target {
 				packageName = 'com.apon.elitefour.database'
+				directory = 'src/main/java/'
 			}
 		}
 	}
