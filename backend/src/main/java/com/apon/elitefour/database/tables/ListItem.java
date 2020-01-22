@@ -8,13 +8,24 @@ import com.apon.elitefour.database.Indexes;
 import com.apon.elitefour.database.Keys;
 import com.apon.elitefour.database.Public;
 import com.apon.elitefour.database.tables.records.ListItemRecord;
-import org.jooq.*;
-import org.jooq.impl.DSL;
-import org.jooq.impl.TableImpl;
 
-import javax.annotation.processing.Generated;
 import java.util.Arrays;
 import java.util.List;
+
+import javax.annotation.processing.Generated;
+
+import org.jooq.Field;
+import org.jooq.ForeignKey;
+import org.jooq.Index;
+import org.jooq.Name;
+import org.jooq.Record;
+import org.jooq.Row5;
+import org.jooq.Schema;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.UniqueKey;
+import org.jooq.impl.DSL;
+import org.jooq.impl.TableImpl;
 
 
 /**
@@ -30,7 +41,7 @@ import java.util.List;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ListItem extends TableImpl<ListItemRecord> {
 
-    private static final long serialVersionUID = -1998485167;
+    private static final long serialVersionUID = 1543199252;
 
     /**
      * The reference instance of <code>public.list_item</code>
@@ -59,6 +70,16 @@ public class ListItem extends TableImpl<ListItemRecord> {
      * The column <code>public.list_item.list_id</code>.
      */
     public final TableField<ListItemRecord, Integer> LIST_ID = createField(DSL.name("list_id"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>public.list_item.rank</code>.
+     */
+    public final TableField<ListItemRecord, Integer> RANK = createField(DSL.name("rank"), org.jooq.impl.SQLDataType.INTEGER, this, "");
+
+    /**
+     * The column <code>public.list_item.is_chosen</code>.
+     */
+    public final TableField<ListItemRecord, Boolean> IS_CHOSEN = createField(DSL.name("is_chosen"), org.jooq.impl.SQLDataType.BOOLEAN, this, "");
 
     /**
      * Create a <code>public.list_item</code> table reference
@@ -149,11 +170,11 @@ public class ListItem extends TableImpl<ListItemRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row3 type methods
+    // Row5 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row3<Integer, String, Integer> fieldsRow() {
-        return (Row3) super.fieldsRow();
+    public Row5<Integer, String, Integer, Integer, Boolean> fieldsRow() {
+        return (Row5) super.fieldsRow();
     }
 }

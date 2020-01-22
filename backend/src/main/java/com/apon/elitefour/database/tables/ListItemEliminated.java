@@ -8,13 +8,24 @@ import com.apon.elitefour.database.Indexes;
 import com.apon.elitefour.database.Keys;
 import com.apon.elitefour.database.Public;
 import com.apon.elitefour.database.tables.records.ListItemEliminatedRecord;
-import org.jooq.*;
-import org.jooq.impl.DSL;
-import org.jooq.impl.TableImpl;
 
-import javax.annotation.processing.Generated;
 import java.util.Arrays;
 import java.util.List;
+
+import javax.annotation.processing.Generated;
+
+import org.jooq.Field;
+import org.jooq.ForeignKey;
+import org.jooq.Index;
+import org.jooq.Name;
+import org.jooq.Record;
+import org.jooq.Row2;
+import org.jooq.Schema;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.UniqueKey;
+import org.jooq.impl.DSL;
+import org.jooq.impl.TableImpl;
 
 
 /**
@@ -30,7 +41,7 @@ import java.util.List;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ListItemEliminated extends TableImpl<ListItemEliminatedRecord> {
 
-    private static final long serialVersionUID = -872466602;
+    private static final long serialVersionUID = -259696162;
 
     /**
      * The reference instance of <code>public.list_item_eliminated</code>
@@ -106,6 +117,19 @@ public class ListItemEliminated extends TableImpl<ListItemEliminatedRecord> {
     @Override
     public List<UniqueKey<ListItemEliminatedRecord>> getKeys() {
         return Arrays.<UniqueKey<ListItemEliminatedRecord>>asList(Keys.LIST_ITEM_ELIMINATED_PKEY);
+    }
+
+    @Override
+    public List<ForeignKey<ListItemEliminatedRecord, ?>> getReferences() {
+        return Arrays.<ForeignKey<ListItemEliminatedRecord, ?>>asList(Keys.LIST_ITEM_ELIMINATED__LIST_ITEM_ELIMINATED_ITEM_ID_FKEY, Keys.LIST_ITEM_ELIMINATED__LIST_ITEM_ELIMINATED_ELIMINATED_ITEM_ID_FKEY);
+    }
+
+    public ListItem listItemEliminated_ListItemEliminatedItemIdFkey() {
+        return new ListItem(this, Keys.LIST_ITEM_ELIMINATED__LIST_ITEM_ELIMINATED_ITEM_ID_FKEY);
+    }
+
+    public ListItem listItemEliminated_ListItemEliminatedEliminatedItemIdFkey() {
+        return new ListItem(this, Keys.LIST_ITEM_ELIMINATED__LIST_ITEM_ELIMINATED_ELIMINATED_ITEM_ID_FKEY);
     }
 
     @Override

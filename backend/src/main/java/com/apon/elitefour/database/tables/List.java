@@ -8,12 +8,23 @@ import com.apon.elitefour.database.Indexes;
 import com.apon.elitefour.database.Keys;
 import com.apon.elitefour.database.Public;
 import com.apon.elitefour.database.tables.records.ListRecord;
-import org.jooq.*;
-import org.jooq.impl.DSL;
-import org.jooq.impl.TableImpl;
+
+import java.util.Arrays;
 
 import javax.annotation.processing.Generated;
-import java.util.Arrays;
+
+import org.jooq.Field;
+import org.jooq.ForeignKey;
+import org.jooq.Index;
+import org.jooq.Name;
+import org.jooq.Record;
+import org.jooq.Row4;
+import org.jooq.Schema;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.UniqueKey;
+import org.jooq.impl.DSL;
+import org.jooq.impl.TableImpl;
 
 
 /**
@@ -29,7 +40,7 @@ import java.util.Arrays;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class List extends TableImpl<ListRecord> {
 
-    private static final long serialVersionUID = -1959969481;
+    private static final long serialVersionUID = 900936485;
 
     /**
      * The reference instance of <code>public.list</code>
@@ -58,6 +69,11 @@ public class List extends TableImpl<ListRecord> {
      * The column <code>public.list.status_id</code>.
      */
     public final TableField<ListRecord, Integer> STATUS_ID = createField(DSL.name("status_id"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>public.list.sizechoice</code>.
+     */
+    public final TableField<ListRecord, Integer> SIZECHOICE = createField(DSL.name("sizechoice"), org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
      * Create a <code>public.list</code> table reference
@@ -148,11 +164,11 @@ public class List extends TableImpl<ListRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row3 type methods
+    // Row4 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row3<Integer, String, Integer> fieldsRow() {
-        return (Row3) super.fieldsRow();
+    public Row4<Integer, String, Integer, Integer> fieldsRow() {
+        return (Row4) super.fieldsRow();
     }
 }

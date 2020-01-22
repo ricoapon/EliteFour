@@ -4,13 +4,14 @@
 package com.apon.elitefour.database;
 
 
-import org.jooq.Schema;
-import org.jooq.impl.CatalogImpl;
-
-import javax.annotation.processing.Generated;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import javax.annotation.processing.Generated;
+
+import org.jooq.Schema;
+import org.jooq.impl.CatalogImpl;
 
 
 /**
@@ -36,7 +37,7 @@ public class DefaultCatalog extends CatalogImpl {
     /**
      * The schema <code>public</code>.
      */
-    public final Public PUBLIC = Public.PUBLIC;
+    public final Public PUBLIC = com.apon.elitefour.database.Public.PUBLIC;
 
     /**
      * No further instances allowed

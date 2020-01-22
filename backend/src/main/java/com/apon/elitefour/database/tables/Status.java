@@ -8,13 +8,24 @@ import com.apon.elitefour.database.Indexes;
 import com.apon.elitefour.database.Keys;
 import com.apon.elitefour.database.Public;
 import com.apon.elitefour.database.tables.records.StatusRecord;
-import org.jooq.*;
-import org.jooq.impl.DSL;
-import org.jooq.impl.TableImpl;
 
-import javax.annotation.processing.Generated;
 import java.util.Arrays;
 import java.util.List;
+
+import javax.annotation.processing.Generated;
+
+import org.jooq.Field;
+import org.jooq.ForeignKey;
+import org.jooq.Index;
+import org.jooq.Name;
+import org.jooq.Record;
+import org.jooq.Row2;
+import org.jooq.Schema;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.UniqueKey;
+import org.jooq.impl.DSL;
+import org.jooq.impl.TableImpl;
 
 
 /**

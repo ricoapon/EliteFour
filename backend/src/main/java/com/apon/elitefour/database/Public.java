@@ -4,14 +4,20 @@
 package com.apon.elitefour.database;
 
 
-import com.apon.elitefour.database.tables.*;
+import com.apon.elitefour.database.tables.FlywaySchemaHistory;
+import com.apon.elitefour.database.tables.List;
+import com.apon.elitefour.database.tables.ListItem;
+import com.apon.elitefour.database.tables.ListItemEliminated;
+import com.apon.elitefour.database.tables.Status;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import javax.annotation.processing.Generated;
+
 import org.jooq.Catalog;
 import org.jooq.Table;
 import org.jooq.impl.SchemaImpl;
-
-import javax.annotation.processing.Generated;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 
 /**
@@ -37,27 +43,27 @@ public class Public extends SchemaImpl {
     /**
      * The table <code>public.flyway_schema_history</code>.
      */
-    public final FlywaySchemaHistory FLYWAY_SCHEMA_HISTORY = FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY;
+    public final FlywaySchemaHistory FLYWAY_SCHEMA_HISTORY = com.apon.elitefour.database.tables.FlywaySchemaHistory.FLYWAY_SCHEMA_HISTORY;
 
     /**
      * The table <code>public.list</code>.
      */
-    public final List LIST = List.LIST;
+    public final List LIST = com.apon.elitefour.database.tables.List.LIST;
 
     /**
      * The table <code>public.list_item</code>.
      */
-    public final ListItem LIST_ITEM = ListItem.LIST_ITEM;
+    public final ListItem LIST_ITEM = com.apon.elitefour.database.tables.ListItem.LIST_ITEM;
 
     /**
      * The table <code>public.list_item_eliminated</code>.
      */
-    public final ListItemEliminated LIST_ITEM_ELIMINATED = ListItemEliminated.LIST_ITEM_ELIMINATED;
+    public final ListItemEliminated LIST_ITEM_ELIMINATED = com.apon.elitefour.database.tables.ListItemEliminated.LIST_ITEM_ELIMINATED;
 
     /**
      * The table <code>public.status</code>.
      */
-    public final Status STATUS = Status.STATUS;
+    public final Status STATUS = com.apon.elitefour.database.tables.Status.STATUS;
 
     /**
      * No further instances allowed

@@ -8,14 +8,25 @@ import com.apon.elitefour.database.Indexes;
 import com.apon.elitefour.database.Keys;
 import com.apon.elitefour.database.Public;
 import com.apon.elitefour.database.tables.records.FlywaySchemaHistoryRecord;
-import org.jooq.*;
-import org.jooq.impl.DSL;
-import org.jooq.impl.TableImpl;
 
-import javax.annotation.processing.Generated;
 import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.List;
+
+import javax.annotation.processing.Generated;
+
+import org.jooq.Field;
+import org.jooq.ForeignKey;
+import org.jooq.Index;
+import org.jooq.Name;
+import org.jooq.Record;
+import org.jooq.Row10;
+import org.jooq.Schema;
+import org.jooq.Table;
+import org.jooq.TableField;
+import org.jooq.UniqueKey;
+import org.jooq.impl.DSL;
+import org.jooq.impl.TableImpl;
 
 
 /**
@@ -84,7 +95,7 @@ public class FlywaySchemaHistory extends TableImpl<FlywaySchemaHistoryRecord> {
     /**
      * The column <code>public.flyway_schema_history.installed_on</code>.
      */
-    public final TableField<FlywaySchemaHistoryRecord, Timestamp> INSTALLED_ON = createField(DSL.name("installed_on"), org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(DSL.field("now()", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
+    public final TableField<FlywaySchemaHistoryRecord, Timestamp> INSTALLED_ON = createField(DSL.name("installed_on"), org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("now()", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
 
     /**
      * The column <code>public.flyway_schema_history.execution_time</code>.

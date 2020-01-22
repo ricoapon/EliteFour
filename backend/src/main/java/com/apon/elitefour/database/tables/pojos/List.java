@@ -4,8 +4,9 @@
 package com.apon.elitefour.database.tables.pojos;
 
 
-import javax.annotation.processing.Generated;
 import java.io.Serializable;
+
+import javax.annotation.processing.Generated;
 
 
 /**
@@ -21,26 +22,30 @@ import java.io.Serializable;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class List implements Serializable {
 
-    private static final long serialVersionUID = -2126214708;
+    private static final long serialVersionUID = 9343452;
 
     private final Integer id;
     private final String  name;
     private final Integer statusId;
+    private final Integer sizechoice;
 
     public List(List value) {
         this.id = value.id;
         this.name = value.name;
         this.statusId = value.statusId;
+        this.sizechoice = value.sizechoice;
     }
 
     public List(
         Integer id,
         String  name,
-        Integer statusId
+        Integer statusId,
+        Integer sizechoice
     ) {
         this.id = id;
         this.name = name;
         this.statusId = statusId;
+        this.sizechoice = sizechoice;
     }
 
     public Integer getId() {
@@ -55,6 +60,10 @@ public class List implements Serializable {
         return this.statusId;
     }
 
+    public Integer getSizechoice() {
+        return this.sizechoice;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("List (");
@@ -62,6 +71,7 @@ public class List implements Serializable {
         sb.append(id);
         sb.append(", ").append(name);
         sb.append(", ").append(statusId);
+        sb.append(", ").append(sizechoice);
 
         sb.append(")");
         return sb.toString();

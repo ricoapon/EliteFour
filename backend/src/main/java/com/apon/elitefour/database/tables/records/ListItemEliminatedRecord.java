@@ -5,12 +5,13 @@ package com.apon.elitefour.database.tables.records;
 
 
 import com.apon.elitefour.database.tables.ListItemEliminated;
+
+import javax.annotation.processing.Generated;
+
 import org.jooq.Field;
 import org.jooq.Record2;
 import org.jooq.Row2;
 import org.jooq.impl.UpdatableRecordImpl;
-
-import javax.annotation.processing.Generated;
 
 
 /**

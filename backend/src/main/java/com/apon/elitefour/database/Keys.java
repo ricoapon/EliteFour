@@ -4,13 +4,22 @@
 package com.apon.elitefour.database;
 
 
-import com.apon.elitefour.database.tables.*;
-import com.apon.elitefour.database.tables.records.*;
+import com.apon.elitefour.database.tables.FlywaySchemaHistory;
+import com.apon.elitefour.database.tables.List;
+import com.apon.elitefour.database.tables.ListItem;
+import com.apon.elitefour.database.tables.ListItemEliminated;
+import com.apon.elitefour.database.tables.Status;
+import com.apon.elitefour.database.tables.records.FlywaySchemaHistoryRecord;
+import com.apon.elitefour.database.tables.records.ListItemEliminatedRecord;
+import com.apon.elitefour.database.tables.records.ListItemRecord;
+import com.apon.elitefour.database.tables.records.ListRecord;
+import com.apon.elitefour.database.tables.records.StatusRecord;
+
+import javax.annotation.processing.Generated;
+
 import org.jooq.ForeignKey;
 import org.jooq.UniqueKey;
 import org.jooq.impl.Internal;
-
-import javax.annotation.processing.Generated;
 
 
 /**
@@ -48,6 +57,8 @@ public class Keys {
 
     public static final ForeignKey<ListRecord, StatusRecord> LIST__LIST_STATUS_ID_FKEY = ForeignKeys0.LIST__LIST_STATUS_ID_FKEY;
     public static final ForeignKey<ListItemRecord, ListRecord> LIST_ITEM__LIST_ITEM_LIST_ID_FKEY = ForeignKeys0.LIST_ITEM__LIST_ITEM_LIST_ID_FKEY;
+    public static final ForeignKey<ListItemEliminatedRecord, ListItemRecord> LIST_ITEM_ELIMINATED__LIST_ITEM_ELIMINATED_ITEM_ID_FKEY = ForeignKeys0.LIST_ITEM_ELIMINATED__LIST_ITEM_ELIMINATED_ITEM_ID_FKEY;
+    public static final ForeignKey<ListItemEliminatedRecord, ListItemRecord> LIST_ITEM_ELIMINATED__LIST_ITEM_ELIMINATED_ELIMINATED_ITEM_ID_FKEY = ForeignKeys0.LIST_ITEM_ELIMINATED__LIST_ITEM_ELIMINATED_ELIMINATED_ITEM_ID_FKEY;
 
     // -------------------------------------------------------------------------
     // [#1459] distribute members to avoid static initialisers > 64kb
@@ -62,7 +73,9 @@ public class Keys {
     }
 
     private static class ForeignKeys0 {
-        public static final ForeignKey<ListRecord, StatusRecord> LIST__LIST_STATUS_ID_FKEY = Internal.createForeignKey(Keys.STATUS_PKEY, List.LIST, "list__list_status_id_fkey", List.LIST.STATUS_ID);
-        public static final ForeignKey<ListItemRecord, ListRecord> LIST_ITEM__LIST_ITEM_LIST_ID_FKEY = Internal.createForeignKey(Keys.LIST_PKEY, ListItem.LIST_ITEM, "list_item__list_item_list_id_fkey", ListItem.LIST_ITEM.LIST_ID);
+        public static final ForeignKey<ListRecord, StatusRecord> LIST__LIST_STATUS_ID_FKEY = Internal.createForeignKey(com.apon.elitefour.database.Keys.STATUS_PKEY, List.LIST, "list__list_status_id_fkey", List.LIST.STATUS_ID);
+        public static final ForeignKey<ListItemRecord, ListRecord> LIST_ITEM__LIST_ITEM_LIST_ID_FKEY = Internal.createForeignKey(com.apon.elitefour.database.Keys.LIST_PKEY, ListItem.LIST_ITEM, "list_item__list_item_list_id_fkey", ListItem.LIST_ITEM.LIST_ID);
+        public static final ForeignKey<ListItemEliminatedRecord, ListItemRecord> LIST_ITEM_ELIMINATED__LIST_ITEM_ELIMINATED_ITEM_ID_FKEY = Internal.createForeignKey(com.apon.elitefour.database.Keys.LIST_ITEM_PKEY, ListItemEliminated.LIST_ITEM_ELIMINATED, "list_item_eliminated__list_item_eliminated_item_id_fkey", ListItemEliminated.LIST_ITEM_ELIMINATED.ITEM_ID);
+        public static final ForeignKey<ListItemEliminatedRecord, ListItemRecord> LIST_ITEM_ELIMINATED__LIST_ITEM_ELIMINATED_ELIMINATED_ITEM_ID_FKEY = Internal.createForeignKey(com.apon.elitefour.database.Keys.LIST_ITEM_PKEY, ListItemEliminated.LIST_ITEM_ELIMINATED, "list_item_eliminated__list_item_eliminated_eliminated_item_id_fkey", ListItemEliminated.LIST_ITEM_ELIMINATED.ELIMINATED_ITEM_ID);
     }
 }

@@ -4,12 +4,17 @@
 package com.apon.elitefour.database;
 
 
-import com.apon.elitefour.database.tables.*;
+import com.apon.elitefour.database.tables.FlywaySchemaHistory;
+import com.apon.elitefour.database.tables.List;
+import com.apon.elitefour.database.tables.ListItem;
+import com.apon.elitefour.database.tables.ListItemEliminated;
+import com.apon.elitefour.database.tables.Status;
+
+import javax.annotation.processing.Generated;
+
 import org.jooq.Index;
 import org.jooq.OrderField;
 import org.jooq.impl.Internal;
-
-import javax.annotation.processing.Generated;
 
 
 /**
